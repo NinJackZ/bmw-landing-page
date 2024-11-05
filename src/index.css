@@ -33,6 +33,25 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  font-family: Helvetica;
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translate(-50%, 30px);
+  
+  opacity: 0;
+  animation: moveUp 1s ease-out forwards;
+}
+
+@keyframes moveUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }
 
 button {
@@ -65,4 +84,30 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+@media (min-width: 768px) {
+  .background-spline {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+@media (max-width: 767px) {
+  .background-spline {
+    width: 100vw;
+    height: 80vh;    /* Slightly reduce height on small screens */
+  }
+}
+
+.m2-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+  object-fit: cover;
+  height: auto; 
 }
