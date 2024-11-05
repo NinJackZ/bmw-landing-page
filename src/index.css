@@ -11,6 +11,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  pointer-events: auto;
 }
 
 a {
@@ -35,12 +36,13 @@ h1 {
   line-height: 1.1;
   font-family: Helvetica;
   position: absolute;
-  top: 150px;
+  top: 75px;
   left: 50%;
   transform: translate(-50%, 30px);
-  
   opacity: 0;
   animation: moveUp 1s ease-out forwards;
+  z-index: 1;
+  pointer-events: none;
 }
 
 @keyframes moveUp {
@@ -107,7 +109,6 @@ button:focus-visible {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  z-index: -1;
   object-fit: cover;
-  height: auto; 
+  height: auto;
 }
