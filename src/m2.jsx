@@ -1,23 +1,24 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import Spline from '@splinetool/react-spline';
 
-const Car = () => {
+const Car = ({ onLoad }) => {
+  const car = useRef();
 
-    const car = useRef();
+  function handleLoad(spline) {
+    const obj = spline.findObjectByName('car');
+    car.current = obj;
 
-    function onLoad(spline) {
-        const obj = spline.findObjectByName('car');
-        car.current = obj;
+    if (onLoad) {
+      onLoad();
     }
+  }
 
-    return (
-    <div>
-      <Spline
-        scene="https://prod.spline.design/Sn-5lUE8m9FYo0ve/scene.splinecode"
-        onLoad={onLoad}
-      />
-    </div>
-    );
+  return (
+    <Spline
+      scene="https://prod.spline.design/Sn-5lUE8m9FYo0ve/scene.splinecode"
+      onLoad={handleLoad}
+    />
+  );
 }
- 
+
 export default Car;
